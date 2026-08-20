@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Lab 2: Semantic-ize Your Page</title>
+  </head>
+  <body>
+    <!-- Bọc tiêu đề vào <header> -->
+    <header>
+      <h1>Tiêu đề Trang Web Của Tôi</h1>
+    </header>
+
+    <!-- Bọc menu liên kết vào <nav> -->
+    <nav>
+      <h2>Menu Điều Hướng</h2>
+      <ul>
+        <li><a href="#gioi-thieu">1. Giới thiệu</a></li>
+        <li><a href="#noi-dung">2. Nội dung chính</a></li>
+        <li><a href="#ket-luan">3. Kết luận</a></li>
+      </ul>
+    </nav>
+
+    <hr />
+
+    <!-- Bọc toàn bộ nội dung chính vào <main> -->
+    <main>
+      <!-- Chia nhỏ nội dung thành các <section> -->
+      <section id="gioi-thieu">
+        <h2>1. Giới thiệu</h2>
+        <p>Đây là phần giới thiệu của bài viết, được đặt trong thẻ section.</p>
+      </section>
+
+      <section id="noi-dung">
+        <h2>2. Nội dung chính</h2>
+        <p>Đây là phần thân bài, chứa các thông tin quan trọng nhất.</p>
+      </section>
+
+      <section id="ket-luan">
+        <h2>3. Kết luận</h2>
+        <p>Đây là phần tổng kết lại toàn bộ trang.</p>
+      </section>
+    </main>
+
+    <hr />
+
+    <!-- Bọc thông tin kết thúc vào <footer> -->
+    <footer>
+      <p>&copy; 2026 Bản quyền thuộc về [Tên của bạn].</p>
+      <p>Liên hệ: email@example.com</p>
+    </footer>
+
+    <label for="ten">Full name</label>
+
+    <input id="ten" name="ten" type="text" required />
+    <input name="tuoi" type="number" />
+    <input name="email" type="email" />
+    <input name="gioitinh" type="radio" value="nam" />Male
+
+    <select name="thanhpho">
+      <option value="hn">Hanoi</option>
+    </select>
+
+    <textarea name="ghichu"></textarea>
+    <button type="submit">Submit</button>
+  </body>
+</html>
