@@ -1,0 +1,26 @@
+<form action="/predict" method="get">
+    <label for="dataset">Tên dataset:</label>
+    <input type="text" id="dataset" name="dataset" required>
+    <br><br>
+
+    <label for="rows">Số dòng:</label>
+    <input type="number" id="rows" name="rows">
+    <br><br>
+
+    <label for="model">Mô hình:</label>
+    <select id="model" name="model">
+        <option value="knn">KNN</option>
+        <option value="svm">SVM</option>
+    </select>
+    <br><br>
+
+    <span>Chế độ:</span>
+    <input type="radio" id="train" name="mode" value="train" required>
+    <label for="train">Train</label>
+    
+    <input type="radio" id="test" name="mode" value="test">
+    <label for="test">Test</label>
+    <br><br>
+
+    <button type="submit">Gửi</button>
+</form>
