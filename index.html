@@ -87,7 +87,6 @@
       <section id="lab2" class="cards-section">
         <h2>Khám phá Box Model</h2>
         <div class="cards-container">
-          
           <!-- Thẻ 1: Sẽ dùng Box Model mặc định -->
           <div class="data-card card-default">
             <h3>Pipeline Python</h3>
@@ -103,41 +102,66 @@
           <!-- Thẻ 3: Dành cho việc tự tính toán -->
           <div class="data-card card-calculate">
             <h3>Kiến trúc AWS</h3>
-            <p>Thẻ dùng để tính toán thủ công tổng chiều rộng trong DevTools.</p>
+            <p>
+              Thẻ dùng để tính toán thủ công tổng chiều rộng trong DevTools.
+            </p>
           </div>
-
         </div>
       </section>
-    <div class="dashboard">
-    <div class="card">
-        <h3>product 1</h3>
-        <p></p>
-    </div>
-    
-    <div class="card">
-        <h3>product 2</h3>
-        <p></p>
-    </div>
-    
-    <div class="card">
-        <h3>product 3</h3>
-        <p></p>
-    </div>
+      <div class="dashboard">
+        <div class="card">
+          <h3>product 1</h3>
+          <p></p>
+        </div>
 
-    <div class="card">
-        <h3>product 4</h3>
-        <p></p>
-    </div>
-</div>
+        <div class="card">
+          <h3>product 2</h3>
+          <p></p>
+        </div>
 
+        <div class="card">
+          <h3>product 3</h3>
+          <p></p>
+        </div>
+
+        <div class="card">
+          <h3>product 4</h3>
+          <p></p>
+        </div>
+      </div>
     </main>
 
     <footer class="footer-container">
       <p>&copy; 2026. Xây dựng bằng HTML cơ bản.</p>
     </footer>
     <!--Embedded: JS written directly inside the page-->
-    
-    <script src="app.js"></script>
-  </body>
-</html> 
 
+    <script src="app.js"></script>
+
+    <!-- PHẦN FORM CHO LAB 2 (DOM + Events) -->
+    <section class="form-section">
+      <h2>Định giá nhà (Lab 2)</h2>
+
+      <form id="house-price-form">
+        <div>
+          <label for="address">Địa chỉ nhà (*):</label>
+          <input type="text" id="address" name="address" />
+        </div>
+
+        <br />
+
+        <div>
+          <label for="bedrooms">Số phòng ngủ (*):</label>
+          <input type="number" id="bedrooms" name="bedrooms" />
+        </div>
+
+        <br />
+
+        <button type="submit">Xác nhận</button>
+
+        <!-- Đây là thẻ div dùng để chứa các thông báo lỗi/thành công -->
+        <div id="message-container"></div>
+      </form>
+    </section>
+  </body>
+</html>
