@@ -1,0 +1,84 @@
+h1 {
+    color: #004080; /* Màu xanh đậm khá giống màu logo trường bạn trên đề bài */
+    font-size: 40px;
+}
+
+#main-header {
+    color: #ff0000; 
+}
+
+.highlight {
+    background-color: #ffff99; /* Nền vàng */
+    font-weight: bold;         /* In đậm */
+    padding: 5px;
+    border-radius: 5px;
+}
+
+a {
+    text-decoration: none; /* Bỏ gạch chân mặc định cho đẹp */
+    color: #0066cc;
+}
+
+a:hover {
+    color: #ff9900; /* Link sẽ đổi sang màu cam khi bạn di chuột vào */
+    text-decoration: underline; /* Hiện lại gạch chân khi di chuột */
+}
+
+.responsive-image { 
+    max-width: 100%; 
+    height: auto;
+    border-radius: 8px; 
+}
+
+/* --- CSS CHO LAB 2: BOX MODEL --- */
+
+.cards-container {
+    display: flex;
+    gap: 20px; /* Tạo khoảng cách giữa các thẻ */
+    margin-top: 20px;
+}
+
+.data-card {
+    width: 200px;
+    padding: 20px;
+    border: 5px solid #004080;
+    margin: 10px;
+    background-color: #f4f4f9;
+}
+
+.card-default {
+    box-sizing: content-box;
+}
+
+.card-borderbox {
+    box-sizing: border-box; 
+    border-color: #d32f2f;
+}
+
+.card-calculate {
+    border-color: #2e7d32;
+}
+
+.dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    height: 200px;
+    background-color: rgb(0, 179, 255) 
+}
+
+@media screen and (max-width : 768px) {
+    .dashboard {
+        flex-direction: column;
+        height: auto;
+    }
+}
+
+.card {
+    background-color: rgb(8, 255, 0);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 8px;
+    height: 70px;
+}
