@@ -116,3 +116,61 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+
+//Week 4
+
+fetch("https://jsonplaceholder.typicode.com/users")
+    .then(function (response){ 
+        return response.json ();
+    }
+)
+    .then(function (data) { 
+        console.log(data);
+    }
+)
+    .catch(function (error){ 
+        console.error('Something went wrong:' , error);
+    }
+);
+
+async function fetchUsers() {
+    return "Hello";
+}
+
+// Week 4 Lab 1 
+function simulateNetworkDelay(ms) {
+    return new Promise((resolve, reject) => {
+        setTimeout (() => {
+            resolve(`Dữ liệu đã được tải về sau ${ms}ms`);
+        }, ms);
+    });
+}
+
+function callWiththen (){
+    console.log(" Đang gọi API bằng. then()...");
+
+    simulateNetworkDelay(2000)
+        .then((response) => {
+            console.log(response);
+        })
+        .catch((error) => {
+            console.error("Lỗi khi gọi API:", error);
+        });
+}
+
+callWiththen();
+
+async function callWithAsyncAwait() {
+    console.log("Đang gọi API bằng async/await...");
+
+    try {
+        const response = await simulateNetworkDelay(2000);
+        console.log(response);
+    } catch(error) {
+        console.error("Lỗi khi gọi API:", error);
+    }
+}
+
+callWithAsyncAwait();
+
