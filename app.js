@@ -162,15 +162,27 @@ function callWiththen (){
 callWiththen();
 
 async function callWithAsyncAwait() {
-    console.log("Đang gọi API bằng async/await...");
-
-    try {
-        const response = await simulateNetworkDelay(2000);
-        console.log(response);
-    } catch(error) {
-        console.error("Lỗi khi gọi API:", error);
-    }
+  try {
+    const response = await fetch('https://jsonplaceholder.typicode.com/users');
+    const data = await response.json(); 
+    
+    const tableBody = document.getElementById("user-table-body");
+    let rowsHtml = "";
+    
+    data.forEach(user => {
+      rowsHtml += `
+        <tr>
+          <td>${user.id}</td>
+          <td>${user.name}</td>
+          <td>${user.username}</td>
+          <td>${user.email}</td>
+          <td>${user.address.suite}, ${user.address.street}, ${user.address.city}</td>
+        </tr>
+      `;
+    });
+    tableBody.innerHTML = rowsHtml;
+  } catch (error) {
+    console.error("Lỗi:", error);
+  }
 }
-
 callWithAsyncAwait();
-
