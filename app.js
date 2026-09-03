@@ -1,3 +1,72 @@
+// ==========================================
+// Khởi tạo dữ liệu (Model a list of prediction samples)
+// ==========================================
+const predictionSamples = [
+    { id: 1, name: "Mô hình Alpha", result: 75 },
+    { id: 2, name: "Mô hình Beta", result: 92 },
+    { id: 3, name: "Mô hình Gamma", result: 88 },
+    { id: 4, name: "Mô hình Delta", result: 60 },
+    { id: 5, name: "Mô hình Epsilon", result: 95 }
+];
+
+console.log("--- DỮ LIỆU BAN ĐẦU ---");
+console.log(predictionSamples);
+
+
+// ==========================================
+// Yêu cầu 1: Vòng lặp for để lọc mảng theo điều kiện
+// (Ví dụ: Lọc các mẫu có result > 80)
+// ==========================================
+const highResultSamples = [];
+
+for (let i = 0; i < predictionSamples.length; i++) {
+    if (predictionSamples[i].result > 80) {
+        highResultSamples.push(predictionSamples[i]);
+    }
+}
+
+console.log("\n--- YÊU CẦU 1: Lọc kết quả (result > 80) ---");
+console.log(highResultSamples);
+
+
+// ==========================================
+// Yêu cầu 2 & Bonus: Hàm tính tổng (Chuyển thành Arrow Function)
+// (Tính tổng trường 'result' của tất cả các object)
+// ==========================================
+const sumResults = (samples) => {
+    let total = 0;
+    // Dùng vòng lặp for...of cho gọn (hoặc for thường đều được)
+    for (let sample of samples) {
+        total += sample.result;
+    }
+    return total;
+};
+
+console.log("\n--- YÊU CẦU 2 & BONUS: Tính tổng bằng Arrow Function ---");
+console.log("Tổng tất cả các result:", sumResults(predictionSamples));
+
+
+// ==========================================
+// Yêu cầu 3: Hàm tìm object có giá trị lớn nhất dùng vòng lặp for
+// (Tìm mẫu dự đoán có result cao nhất)
+// ==========================================
+function findMaxResultSample(samples) {
+    if (samples.length === 0) return null;
+
+    // Giả sử phần tử đầu tiên là lớn nhất
+    let maxSample = samples[0]; 
+    
+    // Bắt đầu lặp từ phần tử thứ 2 (index 1) để so sánh
+    for (let i = 1; i < samples.length; i++) {
+        if (samples[i].result > maxSample.result) {
+            maxSample = samples[i]; // Cập nhật lại nếu tìm thấy số lớn hơn
+        }
+    }
+    return maxSample;
+}
+
+console.log("\n--- YÊU CẦU 3: Tìm object có result lớn nhất ---");
+console.log("Mẫu có kết quả cao nhất là:", findMaxResultSample(predictionSamples));
 // Lớp bảo vệ: Đợi HTML tải xong 100% rồi mới chạy JavaScript
 document.addEventListener("DOMContentLoaded", function() {
     
