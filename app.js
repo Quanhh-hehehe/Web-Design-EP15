@@ -102,6 +102,8 @@ document.addEventListener("DOMContentLoaded", function() {
     // Đưa 2 hàm này vào trong lớp bảo vệ để tránh lỗi Cannot set properties of null
     callWithAsyncAwait();
     renderPostCards();
+
+    renderMLPredictions();
 });
 
 //Week 4
@@ -175,12 +177,10 @@ async function renderPostCards() {
     try {
         const response = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=8');
         const posts = await response.json();
-        
         const container = document.getElementById("post-container");
         if (!container) return; 
         
         container.innerHTML = "";
-        
         let htmlContent = "";
         for (let i = 0; i < posts.length; i++) {
             const post = posts[i];
@@ -192,8 +192,37 @@ async function renderPostCards() {
             `;
         }
         container.innerHTML = htmlContent;
-        
     } catch (error) {
         console.error("Lỗi khi tải danh sách bài viết:", error);
     }
 }
+
+//Week 4 Lab 3: Project Integration
+// ==========================================
+async function renderMLPredictions() {
+    try {
+        const response = await fetch('data.json');
+        const predictions = await response.json();
+        const container = document.getElementById("ml-predictions-container");
+        if (!container) return;
+        
+        container.innerHTML = ""; 
+        let htmlContent = "";
+        for (let i = 0; i < predictions.length; i++) {
+            const item = predictions[i];
+            htmlContent += `
+                <div class="data-card card-calculate">
+                    <h3>${item.modelName}</h3>
+                    <p><strong>Mã:</strong> ${item.id}</p>
+                    <p><strong>Dự đoán:</strong> ${item.predictedPrice}</p>
+                    <p><strong>Độ chính xác:</strong> ${item.accuracy}</p>
+                </div>
+            `;
+        }
+
+        container.innerHTML = htmlContent;
+    } catch (error) {
+        console.error("Lỗi khi tải file data.json:", error);
+    }
+} 
+

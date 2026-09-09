@@ -1,0 +1,21 @@
+[
+  {
+    "id": "ML-01",
+    "modelName": "Linear Regression",
+    "predictedPrice": "2.5 Tỷ VND",
+    "accuracy": "82%"
+  },
+  {
+    "id": "ML-02",
+    "modelName": "Random Forest",
+    "predictedPrice": "2.8 Tỷ VND",
+    "accuracy": "91%"
+  },
+  {
+    "id": "ML-03",
+    "modelName": "XGBoost",
+    "predictedPrice": "2.75 Tỷ VND",
+    "accuracy": "95%"
+  }
+]
+
