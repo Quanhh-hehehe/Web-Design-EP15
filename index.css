@@ -76,9 +76,28 @@ a:hover {
 }
 
 .card {
-    background-color: rgb(8, 255, 0);
+    background-color: rgb(105, 210, 255);
     border-radius: 8px;
     padding: 16px;
     margin: 8px;
-    height: 70px;
+    height: auto; 
 }
+
+#post-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 10px 0;
+}
+
+.card h3 {
+  color: #2c3e50;
+  margin-top: 0;
+  text-transform: capitalize;
+}
+
+.card p {
+  color: #555;
+  line-height: 1.5;
+}
+
