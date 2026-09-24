@@ -1,4 +1,9 @@
 import asyncio
+import time
+from fastapi import Request
+from fastapi import Header, HTTPException, Depends
+from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
 from typing import List
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.staticfiles import StaticFiles
@@ -247,4 +252,48 @@ def delete_item(item_id: int):
             return
     raise HTTPException(status_code=404, detail="Item không tồn tại")
 app.mount("/app", StaticFiles(directory="../frontend", html=True), name="frontend")
+
+# Week 8:
+def verify_api_key(x_api_key: str =Header(...)):
+    if x_api_key != "expected-secret":
+        raise HTTPException(status_code=401, detail="Invalid API key")
+    return x_api_key
+
+@app.get("/secure-data", dependencies=[Depends(verify_api_key)])
+def secure_data():
+     return {"ok": True}
+
+ 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://127.0.0.1:5500"] ,
+    allow_credentials=True,
+    allow_methods=["*"] ,
+    allow_headers=["*"] ,
+)
+@app.middleware("http")
+async def add_process_time(request: Request, call_next):
+    start =time.perf_counter()
+    response=await call_next(request)
+    response.headers["X-Process-Time"] = str(time.perf_counter()- start)
+    return response
+
+@app.middleware("http")
+async def catch_exceptions(request: Request, call_next):
+    try:
+        return await call_next(request)
+    except Exception as exc:
+        print(f"Unhandled error on {request.url.path}: {exc}")
+        return JSONResponse(status_code=500,
+                            content={"detail": "Internal server error"})
+
+_cart = []
+@app.post("/cart/add")
+def add_cart_item(item: str):
+    _cart.append(item)
+    return item 
+
+@app.get("/cart")
+def get_cart():
+    return _cart
 
